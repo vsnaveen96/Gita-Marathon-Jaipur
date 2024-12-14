@@ -1,4 +1,4 @@
-<html><head>
+<html><head><base href="." />
 <title>ISKCON Jaipur Book Distribution Dashboard - Enhanced</title>
 
 <meta charset="utf-8">
@@ -20,6 +20,39 @@ body {
   max-width: 1400px;
   margin: 0 auto;
   padding: 10px;
+}
+
+.auth-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.auth-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.auth-btn:hover {
+  background: rgba(255,255,255,0.3);
+  transform: translateY(-2px);
+}
+
+.auth-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.auth-btn:hover svg {
+  transform: translateX(3px);
 }
 
 .mantra-marquee {
@@ -198,6 +231,48 @@ input:hover, select:hover {
 }
 
 input:focus, select:focus {
+  border-color: #5c2684;
+  box-shadow: 0 0 0 4px rgba(92, 38, 132, 0.1);
+}
+
+#distributor-pledge {
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  background: #ffffff;
+  color: #333;
+}
+
+#distributor-pledge:hover {
+  border-color: #5c2684;
+  background: #fff;
+}
+
+#distributor-pledge:focus {
+  border-color: #5c2684;
+  box-shadow: 0 0 0 4px rgba(92, 38, 132, 0.1);
+}
+
+#subteam-new {
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  background: #ffffff;
+  color: #333;
+}
+
+#subteam-new:hover {
+  border-color: #5c2684;
+  background: #fff;
+}
+
+#subteam-new:focus {
   border-color: #5c2684;
   box-shadow: 0 0 0 4px rgba(92, 38, 132, 0.1);
 }
@@ -811,6 +886,251 @@ th:last-child {
 .modal-btn.cancel:hover {
   background: #e2e6ea;
 }
+
+/* Add this CSS for the login modal */
+.login-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  backdrop-filter: blur(4px);
+}
+
+.login-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.login-header {
+  margin-bottom: 25px;
+}
+
+.login-header h3 {
+  color: #5c2684;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+.login-header p {
+  color: #666;
+  font-size: 0.95em;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-input {
+  padding: 12px;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+
+.login-input:focus {
+  border-color: #5c2684;
+  box-shadow: 0 0 0 4px rgba(92, 38, 132, 0.1);
+}
+
+.login-submit {
+  background: linear-gradient(135deg, #5c2684 0%, #3f1f5c 100%);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(92, 38, 132, 0.2);
+}
+
+.login-options {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-divider {
+  display: none;  /* Hide the divider since there's no Google option */
+}
+
+.login-error {
+  color: #dc3545;
+  font-size: 0.9em;
+  margin-top: 10px;
+  display: none;
+}
+
+/* Add these styles */
+.close-login {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.close-login:hover {
+  color: #333;
+  transform: scale(1.1);
+}
+
+.login-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: none;
+}
+
+/* Add these styles to ensure both charts are properly sized */
+.graph-container canvas {
+  width: 100% !important;
+  height: 400px !important;
+}
+
+.graph-container {
+  margin-bottom: 25px;
+}
+
+/* Add the new styles for distributor list animation */
+.team-distributors {
+  margin-bottom: 20px;
+  background: rgba(92, 38, 132, 0.03);
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.team-name {
+  color: #5c2684;
+  font-weight: 600;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(92, 38, 132, 0.1);
+  font-size: 1.1em;
+}
+
+.team-members {
+  padding-left: 20px;
+}
+
+.distributor-name {
+  padding: 5px 0;
+  color: #444;
+  font-size: 0.95em;
+  display: flex;
+  align-items: center;
+}
+
+.no-data {
+  color: #666;
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add these styles */
+#distributor-pledge {
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  background: #ffffff;
+  color: #333;
+}
+
+#distributor-pledge:hover {
+  border-color: #5c2684;
+  background: #fff;
+}
+
+#distributor-pledge:focus {
+  border-color: #5c2684;
+  box-shadow: 0 0 0 4px rgba(92, 38, 132, 0.1);
+}
+
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 2px dashed #5c2684;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+input[type="file"]:hover {
+  border-color: #3f1f5c;
+  background: rgba(92, 38, 132, 0.05);
+}
+
+input[type="file"]::file-selector-button {
+  background: linear-gradient(135deg, #5c2684 0%, #3f1f5c 100%);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 15px;
+  transition: all 0.3s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(92, 38, 132, 0.2);
+}
+
+.form-group small {
+  color: #666;
+  margin-top: 5px;
+  display: block;
+  font-size: 0.85em;
+}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -827,6 +1147,7 @@ window.set = null;
 window.remove = null;
 
 let distributionChart = null;
+let teamBarChart = null; // Added variable for team bar chart
 
 function initializeChart() {
   const ctx = document.getElementById('distributionChart').getContext('2d');
@@ -918,7 +1239,63 @@ function initializeChart() {
           },
           ticks: {
             maxRotation: 45,
-            minRotation: 45
+            minRotation: 45,
+            callback: function(value, index, values) {
+              // Format the date labels
+              const date = this.getLabelForValue(value);
+              if (!date) return '';
+              const [day, month, year] = date.split('-');
+              return `${day}-${month}-${year}`;
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
+function initializeTeamBarChart() { // New function for team-wise chart
+  const ctx = document.getElementById('teamBarChart').getContext('2d');
+  
+  teamBarChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: [],
+      datasets: []
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+        title: {
+          display: true,
+          text: 'Team-wise Book Distribution'
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              const label = context.dataset.label || '';
+              const value = context.parsed.y || 0;
+              return `${label}: ${value} books`;
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Books'
+          }
+        },
+        x: {
+          title: {
+            display: true,
+            text: 'Teams'
           }
         }
       }
@@ -983,51 +1360,75 @@ function updateChart(distributions) {
   distributionChart.update();
 }
 
-function updateDistributorList(distributions) {
-  const container = document.getElementById('distributor-list');
-  const teamDistributors = {};
-  let teamTotals = {};
+function updateTeamBarChart(distributions) { // Modified function for team-wise chart
+  if (!teamBarChart) {
+    initializeTeamBarChart();
+  }
 
-  // Group distributors by team and calculate totals
+  // Calculate team totals and pledges
+  const teamTotals = {};
+  const teamPledges = {};
+  
   distributions.forEach(dist => {
     const team = dist.marathonType;
-    const distributor = dist.distributor;
-    const quantity = parseInt(dist.quantity) || 0;
-
-    if (!teamDistributors[team]) {
-      teamDistributors[team] = new Set();
+    if (!teamTotals[team]) {
       teamTotals[team] = 0;
     }
-    teamDistributors[team].add(distributor);
-    teamTotals[team] += quantity;
-  });
-
-  // Create HTML content
-  let html = '';
-  Object.keys(teamDistributors).sort().forEach(team => {
-    if (team) { // Only process if team name exists
-      const distributors = Array.from(teamDistributors[team]).sort();
-      const teamTotal = teamTotals[team];
-      
-      html += `
-        <div class="team-distributors">
-          <div class="team-name">${team} (${teamTotal} books)</div>
-          <div class="team-members">
-            ${distributors.map((distributor, index) => {
-              const distributorTotal = distributions
-                .filter(d => d.distributor === distributor)
-                .reduce((sum, d) => sum + (parseInt(d.quantity) || 0), 0);
-              return `<div class="distributor-name">${index + 1}. ${distributor} (${distributorTotal})</div>`;
-            }).join('')}
-          </div>
-        </div>
-      `;
+    teamTotals[team] += parseInt(dist.quantity) || 0;
+    
+    // Track pledges for teams
+    if (dist.pledge && !teamPledges[team]) {
+      teamPledges[team] = 0;
+    }
+    if (dist.pledge) {
+      teamPledges[team] += parseInt(dist.pledge) || 0;
     }
   });
 
-  container.innerHTML = html || '<div class="no-data">No distributors to display</div>';
+  // Sort teams by total books distributed
+  const sortedTeams = Object.entries(teamTotals)
+    .sort((a, b) => b[1] - a[1])
+    .filter(([team]) => team); // Filter out empty team names
+
+  teamBarChart.data.labels = sortedTeams.map(([team]) => team);
+  teamBarChart.data.datasets = [
+    {
+      label: 'Books Distributed',
+      data: sortedTeams.map(([team]) => teamTotals[team]),
+      backgroundColor: [
+        'rgba(92, 38, 132, 0.8)',
+        'rgba(255, 99, 132, 0.8)',
+        'rgba(54, 162, 235, 0.8)',
+        'rgba(75, 192, 192, 0.8)'
+      ],
+      borderColor: [
+        'rgba(92, 38, 132, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(75, 192, 192, 1)'
+      ],
+      borderWidth: 1,
+      barPercentage: 0.8,
+    },
+    {
+      label: 'Team Pledge Target',
+      data: sortedTeams.map(([team]) => teamPledges[team] || 0),
+      type: 'line',
+      borderColor: 'rgba(255, 159, 64, 1)',
+      borderWidth: 2,
+      borderDash: [5, 5],
+      fill: false,
+      pointStyle: 'rectRot',
+      pointRadius: 6,
+      pointBorderColor: 'rgba(255, 159, 64, 1)',
+      pointBackgroundColor: 'rgba(255, 159, 64, 0.5)',
+    }
+  ];
+
+  teamBarChart.update();
 }
 
+// Modify the updateDashboardWithData function to include the new bar chart
 function updateDashboardWithData(distributions) {
   const totalBooks = distributions.reduce((sum, dist) => sum + (parseInt(dist.quantity) || 0), 0);
   const uniqueDistributors = [...new Set(distributions.map(d => d.distributor))];
@@ -1045,6 +1446,7 @@ function updateDashboardWithData(distributions) {
   document.getElementById('progress-text').textContent = `${goalProgress.toFixed(1)}%`;
 
   updateDistributorList(distributions);
+  updatePledgesList(distributions); // Add this line
 
   const distributorTotals = distributions.reduce((acc, dist) => {
     acc[dist.distributor] = (acc[dist.distributor] || 0) + (parseInt(dist.quantity) || 0);
@@ -1060,6 +1462,7 @@ function updateDashboardWithData(distributions) {
   }
 
   updateChart(distributions);
+  updateTeamBarChart(distributions); // Added line to update team bar chart
 }
 
 function populateDistributorFilter(distributions) {
@@ -1120,6 +1523,39 @@ function updateDistributorSelectByTeam(team, distributions) {
   select.innerHTML = defaultOptions + optionsHTML;
 }
 
+function updateSubteamSelect(team) {
+  const subteamSelect = document.getElementById('subteam');
+  const defaultOptions = `
+    <option value="">Select Subteam</option>
+    <option value="other" style="color: #5c2684; font-weight: 500;">+ Add New Subteam</option>
+  `;
+  
+  // Get distributions to find existing subteams
+  const distributionsRef = window.getDbRef('distributions');
+  window.onValue(distributionsRef, (snapshot) => {
+    let distributions = [];
+    snapshot.forEach((childSnapshot) => {
+      const data = childSnapshot.val();
+      if (data && data.marathonType === team && data.subteam) {
+        distributions.push(data);
+      }
+    });
+    
+    // Get unique subteams for the selected team
+    const subteams = [...new Set(distributions.map(d => d.subteam))]
+      .filter(subteam => subteam)
+      .sort();
+    
+    const optionsHTML = subteams
+      .map(subteam => `<option value="${subteam}">${subteam}</option>`)
+      .join('');
+    
+    subteamSelect.innerHTML = defaultOptions + optionsHTML;
+  }, {
+    onlyOnce: true
+  });
+}
+
 function loadDistributions() {
   if (!firebaseLoaded) {
     console.log('Firebase not yet loaded');
@@ -1149,6 +1585,10 @@ function loadDistributions() {
     updateDistributionTable(distributions);
     populateDistributorFilter(distributions);
     updateDistributorSelect(distributions);
+    const marathonTypeSelect = document.getElementById('marathon-type');
+    if (marathonTypeSelect) {
+      updateSubteamSelect(marathonTypeSelect.value);
+    }
   });
 }
 
@@ -1175,14 +1615,14 @@ function updateDistributionTable(distributions) {
     const actualIndex = rowsPerPage === 'all' ? 
       index + 1 : 
       (currentPage - 1) * rowsPerPage + index + 1;
-    
-    row.innerHTML = `
-      <td>${actualIndex}</td>
-      <td>${dist.date}</td>
-      <td>${dist.marathonType}</td>
-      <td>${dist.distributor}</td>
-      <td>${dist.quantity}</td>
-      <td class="action-icons">
+
+    // Format the date from yyyy-mm-dd to dd-mm-yyyy
+    const [year, month, day] = dist.date.split('-');
+    const formattedDate = `${day}-${month}-${year}`;
+
+    // Only show action column if authenticated
+    const actionColumn = window.isAuthenticated ? 
+      `<td class="action-icons" style="display: flex;">
         <button class="icon-button edit-icon" onclick="editDistribution('${dist.id}')" title="Edit">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
@@ -1195,7 +1635,17 @@ function updateDistributionTable(distributions) {
             <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
           </svg>
         </button>
-      </td>
+      </td>` :
+      '<td class="action-icons" style="display: none;">-</td>';
+
+    row.innerHTML = `
+      <td>${actualIndex}</td>
+      <td>${formattedDate}</td>
+      <td>${dist.marathonType}</td>
+      <td>${dist.subteam}</td>
+      <td>${dist.distributor}</td>
+      <td>${dist.quantity}</td>
+      ${actionColumn}
     `;
     tableBody.appendChild(row);
   });
@@ -1203,7 +1653,87 @@ function updateDistributionTable(distributions) {
   updatePagination(totalItems);
 }
 
+function updatePagination(totalItems) {
+  const paginationContainer = document.getElementById('pagination-container');
+  if (!paginationContainer) return;
+
+  // Clear previous pagination
+  paginationContainer.innerHTML = '';
+
+  if (rowsPerPage === 'all') {
+    // If showing all items, just show the total count
+    paginationContainer.innerHTML = `
+      <div class="entries-per-page">
+        <span>Show</span>
+        <select onchange="changeRowsPerPage(this.value)">
+          <option value="10">10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="all" selected>All</option>
+        </select>
+        <span>entries</span>
+      </div>
+      <div class="page-info">Showing all ${totalItems} entries</div>
+    `;
+    return;
+  }
+
+  const totalPages = Math.ceil(totalItems / parseInt(rowsPerPage));
+  
+  // Show entries per page selector
+  let html = `
+    <div class="entries-per-page">
+      <span>Show</span>
+      <select onchange="changeRowsPerPage(this.value)">
+        <option value="10" ${rowsPerPage === '10' ? 'selected' : ''}>10</option>
+        <option value="25" ${rowsPerPage === '25' ? 'selected' : ''}>25</option>
+        <option value="50" ${rowsPerPage === '50' ? 'selected' : ''}>50</option>
+        <option value="all">All</option>
+      </select>
+      <span>entries</span>
+    </div>
+  `;
+
+  // Add pagination controls
+  html += '<div class="pagination">';
+  
+  // Previous button
+  html += `
+    <button onclick="changePage(${currentPage - 1})" 
+            ${currentPage === 1 ? 'disabled' : ''}>
+      Previous
+    </button>
+  `;
+
+  // Page numbers
+  const startItem = ((currentPage - 1) * parseInt(rowsPerPage)) + 1;
+  const endItem = Math.min(startItem + parseInt(rowsPerPage) - 1, totalItems);
+  
+  html += `
+    <span class="page-info">
+      Showing ${startItem} to ${endItem} of ${totalItems} entries
+    </span>
+  `;
+
+  // Next button
+  html += `
+    <button onclick="changePage(${currentPage + 1})" 
+            ${currentPage >= totalPages ? 'disabled' : ''}>
+      Next
+    </button>
+  `;
+
+  html += '</div>';
+  
+  paginationContainer.innerHTML = html;
+}
+
 function editDistribution(id) {
+  if (!window.isAuthenticated) {
+    alert('Please login to edit distribution data');
+    return;
+  }
+  
   if (!id || !window.getDbRef) return;
   
   const distributionsRef = window.getDbRef(`distributions/${id}`);
@@ -1217,18 +1747,22 @@ function editDistribution(id) {
       
       // Get all form elements with null checks
       const marathonTypeSelect = document.getElementById('marathon-type');
+      const subteamSelect = document.getElementById('subteam');
       const distributorSelect = document.getElementById('distributor-name');
       const quantityInput = document.getElementById('quantity');
       const dateInput = document.getElementById('distribution-date');
+      const pledgeInput = document.getElementById('distributor-pledge');
       const form = document.getElementById('distribution-form');
       const marathonTypeNew = document.getElementById('marathon-type-new');
       const distributorNameNew = document.getElementById('distributor-name-new');
+      const subteamNew = document.getElementById('subteam-new');
       
-      if (!marathonTypeSelect || !distributorSelect || !quantityInput || 
-          !dateInput || !form || !marathonTypeNew || !distributorNameNew) return;
+      if (!marathonTypeSelect || !subteamSelect || !distributorSelect || !quantityInput || 
+          !dateInput || !form || !marathonTypeNew || !distributorNameNew || !subteamNew) return;
       
       // Set values with null checks
       marathonTypeSelect.value = data.marathonType || '';
+      subteamSelect.value = data.subteam || '';
       
       // Wait for team-specific distributors to load
       try {
@@ -1247,6 +1781,7 @@ function editDistribution(id) {
             });
             
             updateDistributorSelectByTeam(data.marathonType, distributions);
+            updateSubteamSelect(data.marathonType); // Update subteams for selected team
             resolve();
           }, {
             onlyOnce: true
@@ -1259,12 +1794,15 @@ function editDistribution(id) {
       distributorSelect.value = data.distributor || '';
       quantityInput.value = data.quantity || '';
       dateInput.value = data.date || '';
+      pledgeInput.value = data.pledge || '';
       form.setAttribute('data-edit-id', id);
       
       marathonTypeNew.style.display = 'none';
       distributorNameNew.style.display = 'none';
+      subteamNew.style.display = 'none';
       marathonTypeNew.value = '';
       distributorNameNew.value = '';
+      subteamNew.value = '';
 
       // Scroll to form with null check
       if (dataInput) {
@@ -1280,6 +1818,10 @@ function editDistribution(id) {
 }
 
 function deleteDistribution(id) {
+  if (!window.isAuthenticated) {
+    alert('Please login to delete distribution data');
+    return;
+  }
   window.deleteId = id; // Store the ID temporarily
   document.getElementById('deleteModal').style.display = 'block';
 }
@@ -1315,6 +1857,89 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
+  const loginForm = document.getElementById('loginForm');
+  if (loginForm) {
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const email = document.getElementById('loginEmail')?.value;
+      const password = document.getElementById('loginPassword')?.value;
+      const errorDiv = document.getElementById('loginError');
+      
+      if (!email || !password) {
+        if (errorDiv) {
+          errorDiv.textContent = 'Please provide both email and password';
+          errorDiv.style.display = 'block';
+        }
+        return;
+      }
+      
+      try {
+        // Use the global functions
+        await window.signInWithEmailAndPassword(window.auth, email, password);
+        closeLoginModal();
+        if (loginForm) loginForm.reset();
+        if (errorDiv) errorDiv.style.display = 'none';
+      } catch (error) {
+        if (errorDiv) {
+          errorDiv.textContent = error.message;
+          errorDiv.style.display = 'block';
+        }
+      }
+    });
+  }
+
+  const marathonType = document.getElementById('marathon-type');
+  if (marathonType) {
+    marathonType.addEventListener('change', function(e) {
+      const newTeamInput = document.getElementById('marathon-type-new');
+      const subteamSelect = document.getElementById('subteam');
+      if (!newTeamInput) return;
+      
+      newTeamInput.style.display = this.value === 'other' ? 'block' : 'none';
+      if (this.value !== 'other') {
+        newTeamInput.value = '';
+        updateSubteamSelect(this.value); // Update the subteam select
+      }
+    });
+  }
+
+  const subteam = document.getElementById('subteam');
+  if (subteam) {
+    subteam.addEventListener('change', function(e) {
+      const newSubteamInput = document.getElementById('subteam-new');
+      newSubteamInput.style.display = this.value === 'other' ? 'block' : 'none';
+      if (this.value !== 'other') {
+        newSubteamInput.value = '';
+      }
+    });
+  }
+
+  const distributorName = document.getElementById('distributor-name');
+  if (distributorName) {
+    distributorName.addEventListener('change', function(e) {
+      const newDistributorInput = document.getElementById('distributor-name-new');
+      const pledgeInput = document.getElementById('distributor-pledge');
+      
+      if (this.value === 'other') {
+        newDistributorInput.style.display = 'block';
+        pledgeInput.style.display = 'block';
+      } else {
+        newDistributorInput.style.display = 'none';
+        pledgeInput.style.display = 'none';
+        newDistributorInput.value = '';
+        pledgeInput.value = '';
+      }
+    });
+  }
+
+  // Set default date to today for the date input
+  const today = new Date().toISOString().split('T')[0];
+  const dateInput = document.getElementById('distribution-date');
+  if (dateInput) {
+    dateInput.value = today;
+  }
+
   // Initialize other functionality...
   const savedRowsPerPage = localStorage.getItem('rowsPerPage');
   if (savedRowsPerPage) {
@@ -1328,7 +1953,91 @@ document.addEventListener('DOMContentLoaded', () => {
   if (firebaseLoaded) {
     loadDistributions();
   }
+
+  // Initial hiding of add button on page load
+  const addBtn = document.querySelector('.add-btn');
+  if (addBtn) {
+    addBtn.style.display = 'none';
+  }
+
+  // Add CSV import handler
+  const csvImport = document.getElementById('csv-import');
+  if (csvImport) {
+    csvImport.addEventListener('change', handleCSVImport);
+  }
 });
+
+// Function to handle CSV Import
+function handleCSVImport(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  if (!window.isAuthenticated) {
+    alert('Please login to import distribution data');
+    event.target.value = ''; // Clear the file input
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = async function(e) {
+    try {
+      const text = e.target.result;
+      const lines = text.split('\n');
+      
+      // Remove header row and empty lines
+      const rows = lines.slice(1).filter(line => line.trim());
+      
+      let successCount = 0;
+      let errorCount = 0;
+      
+      for (const row of rows) {
+        const [dateStr, marathonType, subteam, distributor, quantityStr] = row.split(',').map(cell => cell.trim());
+        
+        // Convert date from DD-MM-YYYY to YYYY-MM-DD
+        const [day, month, year] = dateStr.split('-');
+        const date = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+        
+        const quantity = parseInt(quantityStr);
+        
+        if (!date || !marathonType || !subteam || !distributor || isNaN(quantity)) {
+          errorCount++;
+          continue;
+        }
+
+        try {
+          const distribution = {
+            marathonType,
+            subteam,
+            distributor,
+            quantity,
+            date,
+            timestamp: window.serverTimestamp()
+          };
+
+          const distributionsRef = window.getDbRef('distributions');
+          await window.push(distributionsRef, distribution);
+          successCount++;
+        } catch (error) {
+          console.error('Error importing row:', error);
+          errorCount++;
+        }
+      }
+
+      alert(`Import completed!\nSuccessfully imported: ${successCount} records\nFailed to import: ${errorCount} records`);
+      event.target.value = ''; // Clear the file input
+      
+      // Close the form after successful import
+      document.querySelector('.data-input').classList.remove('show');
+      
+    } catch (error) {
+      console.error('Error processing CSV:', error);
+      alert('Error processing CSV file. Please check the format and try again.');
+      event.target.value = ''; // Clear the file input
+    }
+  };
+
+  reader.readAsText(file);
+}
 
 function changeRowsPerPage(value) {
   rowsPerPage = value;
@@ -1424,6 +2133,11 @@ function clearFilters() {
 
 // Function to export data to CSV
 function exportToCSV() {
+  if (!window.isAuthenticated) {
+    alert('Please login to export data');
+    return;
+  }
+  
   // Get filtered data or all data if no filters
   const dataToExport = window.currentFilteredData || [];
 
@@ -1436,33 +2150,34 @@ function exportToCSV() {
   const team = document.getElementById('marathon-type-filter')?.value;
 
   if (startDate && endDate) {
-    filename += `_${startDate}_to_${endDate}`;
+    const formatDateForFilename = (dateStr) => {
+      const [year, month, day] = dateStr.split('-');
+      return `${day}-${month}-${year}`;
+    };
+    filename += `_${formatDateForFilename(startDate)}_to_${formatDateForFilename(endDate)}`;
   } else if (startDate) {
-    filename += `_from_${startDate}`;
+    const [year, month, day] = startDate.split('-');
+    filename += `_from_${day}-${month}-${year}`;
   } else if (endDate) {
-    filename += `_until_${endDate}`;
+    const [year, month, day] = endDate.split('-');
+    filename += `_until_${day}-${month}-${year}`;
   }
-
-  if (distributor) {
-    filename += `_${distributor}`;
-  }
-  
-  if (team) {
-    filename += `_${team}`;
-  }
-
-  filename += '_' + new Date().toISOString().split('T')[0];
-  filename += '.csv';
 
   // Create CSV content
   const csvContent = [
-    ['Date', 'Marathon Team', 'Distributor', 'Quantity'], // Headers
-    ...dataToExport.map(item => [
-      item.date,
-      item.marathonType,
-      item.distributor,
-      item.quantity
-    ])
+    ['Date', 'Marathon Team', 'Subteam', 'Distributor', 'Quantity'], // Headers
+    ...dataToExport.map(item => {
+      const [year, month, day] = item.date.split('-');
+      const formattedDate = `${day}-${month}-${year}`;
+      return [
+        formattedDate,
+        item.marathonType,
+        item.subteam,
+        item.distributor,
+        item.quantity,
+        item.pledge || ''
+      ];
+    })
   ]
   .map(row => row.map(cell => `"${cell || ''}"`).join(','))
   .join('\n');
@@ -1482,65 +2197,213 @@ function exportToCSV() {
   }
 }
 
-// Add this helper function to update pagination properly with null checks
-function updatePagination(totalItems) {
-  const paginationContainer = document.getElementById('pagination-container');
-  
-  if (!paginationContainer) {
-    console.log('Pagination container not found');
-    return;
+// Add this helper function to close the login modal
+function closeLoginModal() {
+  const loginModal = document.getElementById('loginModal');
+  if (loginModal) {
+    loginModal.style.display = 'none';
   }
-  
-  const totalPages = rowsPerPage === 'all' ? 1 : Math.ceil(totalItems / parseInt(rowsPerPage));
-  
-  let paginationHTML = `
-    <div class="entries-per-page">
-      <label>Show entries:</label>
-      <select onchange="changeRowsPerPage(this.value)">
-        <option value="10" ${rowsPerPage === '10' ? 'selected' : ''}>10</option>
-        <option value="25" ${rowsPerPage === '25' ? 'selected' : ''}>25</option>
-        <option value="50" ${rowsPerPage === '50' ? 'selected' : ''}>50</option>
-        <option value="100" ${rowsPerPage === '100' ? 'selected' : ''}>100</option>
-        <option value="all" ${rowsPerPage === 'all' ? 'selected' : ''}>All</option>
-      </select>
-    </div>
-  `;
-  
-  if (rowsPerPage !== 'all') {
-    paginationHTML += `
-      <div class="pagination">
-        <button onclick="changePage(1)" ${currentPage === 1 ? 'disabled' : ''}>First</button>
-        <button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>Previous</button>
-        <span class="page-info">Page ${currentPage} of ${totalPages}</span>
-        <button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>Next</button>
-        <button onclick="changePage(${totalPages})" ${currentPage === totalPages ? 'disabled' : ''}>Last</button>
-      </div>
-    `;
-  }
-  
-  paginationContainer.innerHTML = paginationHTML;
 }
 
-// Add DOMContentLoaded event listener to ensure DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-  // Initialize any required functionality here
-  const savedRowsPerPage = localStorage.getItem('rowsPerPage');
-  if (savedRowsPerPage) {
-    rowsPerPage = savedRowsPerPage;
-    const select = document.querySelector('.entries-per-page select');
-    if (select) {
-      select.value = savedRowsPerPage;
+// Function to toggle form visibility
+function toggleForm(formClass) {
+  const filterContainer = document.querySelector('.filter-container');
+  const dataInput = document.querySelector('.data-input');
+  
+  if (!filterContainer || !dataInput) return; // Guard against null elements
+  
+  if (formClass === 'filter-container') {
+    filterContainer.classList.toggle('show');
+    if (dataInput.classList.contains('show')) {
+      dataInput.classList.remove('show');
+    }
+  } else if (formClass === 'data-input') {
+    dataInput.classList.toggle('show');
+    if (filterContainer.classList.contains('show')) {
+      filterContainer.classList.remove('show');
+    }
+    // Set default date to today when showing the form
+    const today = new Date().toISOString().split('T')[0];
+    const dateInput = document.getElementById('distribution-date');
+    if (dateInput && !dateInput.value) {
+      dateInput.value = today;
     }
   }
+}
+
+// Function to toggle distributors list visibility with null checks
+function toggleDistributorsList() {
+  const list = document.getElementById('distributor-list');
+  const button = document.getElementById('toggle-distributors');
   
-  if (firebaseLoaded) {
-    loadDistributions();
+  if (!list || !button) return; // Guard against null elements
+  
+  list.classList.toggle('show');
+  button.classList.toggle('active');
+}
+
+// Function to toggle pledges list visibility with null checks
+function togglePledgesList() {
+  const list = document.getElementById('pledge-list');
+  const button = document.getElementById('toggle-pledges');
+  
+  if (!list || !button) return;
+  
+  list.classList.toggle('show');
+  button.classList.toggle('active');
+}
+
+function updatePledgesList(distributions) {
+  const list = document.getElementById('pledge-list');
+  if (!list) return;
+
+  // Group pledges by team
+  const teamPledges = distributions.reduce((acc, dist) => {
+    if (dist.pledge && dist.marathonType) {
+      if (!acc[dist.marathonType]) {
+        acc[dist.marathonType] = new Map();
+      }
+      acc[dist.marathonType].set(dist.distributor, dist.pledge);
+    }
+    return acc;
+  }, {});
+
+  // Clear existing list
+  list.innerHTML = '';
+
+  // Check if there are any pledges
+  if (Object.keys(teamPledges).length === 0) {
+    list.innerHTML = '<div class="no-data">No pledges found</div>';
+    return;
   }
-});
+
+  // Calculate team totals
+  const teamTotals = {};
+  Object.entries(teamPledges).forEach(([team, distributors]) => {
+    teamTotals[team] = Array.from(distributors.values()).reduce((sum, pledge) => sum + parseInt(pledge), 0);
+  });
+
+  // Create team-wise grouping with team numbering
+  Object.entries(teamPledges)
+    .sort(([a], [b]) => a.localeCompare(b)) // Sort teams alphabetically
+    .forEach(([team, pledges], teamIndex) => {
+      if (team && pledges.size > 0) {
+        const teamDiv = document.createElement('div');
+        teamDiv.className = 'team-distributors';
+        
+        const teamName = document.createElement('div');
+        teamName.className = 'team-name';
+        teamName.textContent = `${teamIndex + 1}. ${team} (${teamTotals[team]} books pledged)`; // Add team number and total pledges
+        
+        const pledgesList = document.createElement('div');
+        pledgesList.className = 'team-members';
+        
+        // Convert Map entries to array and sort
+        Array.from(pledges.entries())
+          .sort(([a], [b]) => a.localeCompare(b)) // Sort distributors alphabetically
+          .forEach(([distributor, pledge], index) => {
+            if (distributor && pledge) {
+              const pledgeItem = document.createElement('div');
+              pledgeItem.className = 'distributor-name';
+              pledgeItem.textContent = `${index + 1}. ${distributor} (${pledge} books pledged)`;
+              pledgesList.appendChild(pledgeItem);
+            }
+          });
+        
+        teamDiv.appendChild(teamName);
+        teamDiv.appendChild(pledgesList);
+        list.appendChild(teamDiv);
+      }
+    });
+
+  // Add animation
+  list.querySelectorAll('.team-distributors').forEach((team, index) => {
+    team.style.animationDelay = `${index * 0.1}s`;
+    team.classList.add('fade-in');
+  });
+}
+
+function updateDistributorList(distributions) {
+  const list = document.getElementById('distributor-list');
+  if (!list) return;
+
+  // Group distributors by team and calculate scores
+  const teamDistributors = distributions.reduce((acc, dist) => {
+    const team = dist.marathonType;
+    const distributor = dist.distributor;
+    
+    if (!acc[team]) {
+      acc[team] = new Map(); // Use Map to store distributor and their total
+    }
+    
+    const currentTotal = acc[team].get(distributor) || 0;
+    acc[team].set(distributor, currentTotal + (parseInt(dist.quantity) || 0));
+    
+    return acc;
+  }, {});
+
+  // Calculate team totals
+  const teamTotals = {};
+  Object.entries(teamDistributors).forEach(([team, distributors]) => {
+    teamTotals[team] = Array.from(distributors.values()).reduce((sum, score) => sum + score, 0);
+  });
+
+  // Clear existing list
+  list.innerHTML = '';
+
+  // Check if there are any distributors
+  if (Object.keys(teamDistributors).length === 0) {
+    list.innerHTML = '<div class="no-data">No distributors found</div>';
+    return;
+  }
+
+  // Create team-wise grouping with team numbering and scores
+  Object.entries(teamDistributors)
+    .sort(([a], [b]) => a.localeCompare(b)) // Sort teams alphabetically
+    .forEach(([team, distributors], teamIndex) => {
+      if (team && distributors.size > 0) {
+        const teamDiv = document.createElement('div');
+        teamDiv.className = 'team-distributors';
+        
+        const teamName = document.createElement('div');
+        teamName.className = 'team-name';
+        teamName.textContent = `${teamIndex + 1}. ${team} (${teamTotals[team]} books)`; // Add team number and total
+        
+        const membersList = document.createElement('div');
+        membersList.className = 'team-members';
+        
+        // Convert Map entries to array and sort by score in descending order
+        Array.from(distributors.entries())
+          .sort(([, a], [, b]) => b - a) // Sort by score
+          .forEach(([distributor, score], index) => {
+            if (distributor) {
+              const distributorDiv = document.createElement('div');
+              distributorDiv.className = 'distributor-name';
+              distributorDiv.textContent = `${index + 1}. ${distributor} (${score} books)`;
+              membersList.appendChild(distributorDiv);
+            }
+          });
+        
+        teamDiv.appendChild(teamName);
+        teamDiv.appendChild(membersList);
+        list.appendChild(teamDiv);
+      }
+    });
+
+  // Add animation
+  list.querySelectorAll('.team-distributors').forEach((team, index) => {
+    team.style.animationDelay = `${index * 0.1}s`;
+    team.classList.add('fade-in');
+  });
+}
 </script>
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
   import { getDatabase, ref, push, onValue, serverTimestamp, set, remove } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+  import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+
+  window.auth = null; // Add this line to store auth globally
+  window.signInWithEmailAndPassword = null; // Add this line to store the function globally
 
   const firebaseConfig = {
     apiKey: "AIzaSyCUuktFF02u4OlgFf4JJJfhRdhP7g-OS-0",
@@ -1554,6 +2417,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app);
+  const auth = getAuth(app);
+
+  // Store auth and signInWithEmailAndPassword globally
+  window.auth = auth;
+  window.signInWithEmailAndPassword = signInWithEmailAndPassword;
 
   window.onValue = onValue;
   window.ref = ref;
@@ -1565,6 +2433,57 @@ document.addEventListener('DOMContentLoaded', () => {
   window.set = set;
   window.remove = remove;
   firebaseLoaded = true;
+
+  window.isAuthenticated = false;
+
+  // Update the auth state listener
+  onAuthStateChanged(auth, (user) => {
+    const loginBtn = document.getElementById('loginBtn');
+    const loginBtnText = document.getElementById('loginBtnText');
+    const addBtn = document.querySelector('.add-btn');
+    const exportBtn = document.querySelector('.export-btn'); // Add this line
+    
+    if (user) {
+      window.isAuthenticated = true;
+      loginBtnText.textContent = 'Logout';  
+      loginBtn.onclick = handleSignOut;
+      if (addBtn) addBtn.style.display = 'flex';
+      if (exportBtn) exportBtn.style.display = 'block'; // Add this line
+      
+      // Reload distributions to show actions
+      loadDistributions();
+    } else {
+      window.isAuthenticated = false;
+      loginBtnText.textContent = 'Login';
+      loginBtn.onclick = handleSignIn;
+      if (addBtn) addBtn.style.display = 'none';
+      if (exportBtn) exportBtn.style.display = 'none'; // Add this line
+      
+      // Reload distributions to hide actions
+      loadDistributions();
+    }
+  });
+
+  // Add auth handlers
+  async function handleSignOut() {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
+  }
+
+  // Add this in the type="module" script section
+  function handleSignIn() {
+    const loginModal = document.getElementById('loginModal');
+    if (loginModal) {
+      loginModal.style.display = 'block';
+    }
+  }
+
+  // Make these functions globally available
+  window.handleSignIn = handleSignIn;
+  window.closeLoginModal = closeLoginModal;
 
   document.addEventListener('DOMContentLoaded', () => {
     const savedRowsPerPage = localStorage.getItem('rowsPerPage');
@@ -1584,14 +2503,18 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('distribution-form').addEventListener('submit', async function(e) {
     e.preventDefault();
     
-    if (!firebaseLoaded) {
-      console.log('Firebase not yet loaded');
+    if (!window.isAuthenticated) {
+      alert('Please login to add or update distribution data');
       return;
     }
 
     const marathonType = document.getElementById('marathon-type').value === 'other' 
       ? document.getElementById('marathon-type-new').value 
       : document.getElementById('marathon-type').value;
+    
+    const subteam = document.getElementById('subteam').value === 'other'
+      ? document.getElementById('subteam-new').value
+      : document.getElementById('subteam').value;
       
     const distributorName = document.getElementById('distributor-name').value === 'other'
       ? document.getElementById('distributor-name-new').value
@@ -1599,23 +2522,26 @@ document.addEventListener('DOMContentLoaded', () => {
       
     const quantity = parseInt(document.getElementById('quantity').value);
     const date = document.getElementById('distribution-date').value;
+    const pledge = document.getElementById('distributor-pledge').value;
 
-    if (!marathonType || !distributorName || !quantity || !date) {
-      alert('Please fill all fields');
+    if (!marathonType || !subteam || !distributorName || !quantity || !date) {
+      alert('Please fill all required fields');
       return;
     }
 
     const distribution = {
       marathonType,
+      subteam,
       distributor: distributorName,
       quantity,
       date,
+      pledge: distributorName === document.getElementById('distributor-name-new').value ? pledge : null,
       timestamp: window.serverTimestamp()
     };
 
+    const editId = this.getAttribute('data-edit-id');
+    
     try {
-      const editId = this.getAttribute('data-edit-id');
-      
       if (editId) {
         const updateRef = window.getDbRef(`distributions/${editId}`);
         await window.set(updateRef, distribution);
@@ -1623,67 +2549,27 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         const distributionsRef = window.getDbRef('distributions');
         await window.push(distributionsRef, distribution);
+
+        // If it's a new distributor, store their pledge separately
+        if (distributorName === document.getElementById('distributor-name-new').value && pledge) {
+          const pledgesRef = window.getDbRef('pledges');
+          await window.push(pledgesRef, {
+            distributor: distributorName,
+            pledge: pledge,
+            timestamp: window.serverTimestamp()
+          });
+        }
       }
 
       this.reset();
       document.getElementById('marathon-type-new').style.display = 'none';
-      document.getElementById('distributor-name-new').style.display = 'none';
+      document.getElementById('subteam-new').style.display = 'none';
+      document.getElementById('distributor-pledge').style.display = 'none';
       document.querySelector('.data-input').classList.remove('show');
       
     } catch (error) {
       console.error('Error managing distribution:', error);
       alert('Error managing distribution. Please try again.');
-    }
-  });
-
-  document.getElementById('marathon-type').addEventListener('change', function(e) {
-    const newTeamInput = document.getElementById('marathon-type-new');
-    newTeamInput.style.display = this.value === 'other' ? 'block' : 'none';
-    if (this.value !== 'other') {
-      newTeamInput.value = '';
-      
-      const distributionsRef = window.getDbRef('distributions');
-      window.onValue(distributionsRef, (snapshot) => {
-        let distributions = [];
-        snapshot.forEach((childSnapshot) => {
-          const data = childSnapshot.val();
-          if (data) {
-            distributions.push({
-              id: childSnapshot.key,
-              ...data
-            });
-          }
-        });
-        
-        updateDistributorSelectByTeam(this.value, distributions);
-      }, {
-        onlyOnce: true
-      });
-    } else {
-      const distributionsRef = window.getDbRef('distributions');
-      window.onValue(distributionsRef, (snapshot) => {
-        let distributions = [];
-        snapshot.forEach((childSnapshot) => {
-          const data = childSnapshot.val();
-          if (data) {
-            distributions.push({
-              id: childSnapshot.key,
-              ...data
-            });
-          }
-        });
-        updateDistributorSelect(distributions);
-      }, {
-        onlyOnce: true
-      });
-    }
-  });
-
-  document.getElementById('distributor-name').addEventListener('change', function(e) {
-    const newDistributorInput = document.getElementById('distributor-name-new');
-    newDistributorInput.style.display = this.value === 'other' ? 'block' : 'none';
-    if (this.value !== 'other') {
-      newDistributorInput.value = '';
     }
   });
 </script>
@@ -1698,14 +2584,22 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
   
   <div class="header">
-    <h1>ISKCON Jaipur Gita Marathon</h1>
+    <div class="auth-container">
+      <button id="loginBtn" class="auth-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"/>
+        </svg>
+        <span id="loginBtnText">Login</span>
+      </button>
+    </div>
+    <h1 style="padding-top: 20px;">ISKCON Jaipur Gita Marathon</h1>
     <p>Track and monitor book distribution progress</p>
   </div>
 
   <div class="action-buttons">
     <button onclick="toggleForm('filter-container')" class="icon-button filter-btn">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M3 4h18v2H3V4zm0 7h12v2H3v-2zm0 7h8v2H3v-2z"/>
+        <path d="M3 4h18v2H3V4zm0 7h12v2H3v-2zm0 7h8v2H3z"/>
       </svg>
       Filter
     </button>
@@ -1766,12 +2660,27 @@ document.addEventListener('DOMContentLoaded', () => {
         <input type="text" id="marathon-type-new" placeholder="Enter new team name" style="display: none; margin-top: 10px;">
       </div>
       <div class="form-group">
+        <label>Subteam</label>
+        <select id="subteam" required>
+          <option value="">Select Subteam</option>
+          <option value="other" style="color: #5c2684; font-weight: 500;">+ Add New Subteam</option>
+        </select>
+        <input type="text" id="subteam-new" placeholder="Enter new subteam name" style="display: none; margin-top: 10px;">
+      </div>
+      <div class="form-group">
         <label>Distributor Name</label>
         <select id="distributor-name" required>
           <option value="">Select Distributor</option>
           <option value="other" style="color: #5c2684; font-weight: 500;">+ Add New Distributor</option>
         </select>
         <input type="text" id="distributor-name-new" placeholder="Enter new distributor name" style="display: none; margin-top: 10px;">
+        <input 
+          type="number" 
+          id="distributor-pledge" 
+          placeholder="Enter distributor's book pledge"
+          min="1"
+          style="display: none; margin-top: 10px;"
+        >
       </div>
       <div class="form-group">
         <label>Quantity</label>
@@ -1780,6 +2689,15 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="form-group">
         <label>Date</label>
         <input type="date" id="distribution-date" required>
+      </div>
+      <!-- Add CSV import functionality here -->
+      <div class="form-group">
+        <label>Import CSV</label>
+        <input type="file" id="csv-import" accept=".csv" 
+               style="width: 100%; padding: 10px; border: 2px dashed #5c2684; border-radius: 12px; cursor: pointer;">
+        <small style="color: #666; margin-top: 5px; display: block;">
+          CSV Format: Date (DD-MM-YYYY), Marathon Team, Subteam, Distributor, Quantity
+        </small>
       </div>
       <button type="submit">Submit Distribution</button>
     </form>
@@ -1811,6 +2729,12 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="stat-card">
       <h3>Marathon Goal</h3>
       <div class="number" id="marathon-goal">100000</div>
+      <button id="toggle-pledges" class="toggle-distributors" onclick="togglePledgesList()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+        </svg>
+      </button>
+      <div id="pledge-list" class="distributor-list"></div>
     </div>
     <div class="stat-card">
       <h3>Progress to Goal</h3>
@@ -1826,6 +2750,11 @@ document.addEventListener('DOMContentLoaded', () => {
     <canvas id="distributionChart"></canvas>
   </div>
 
+  <div class="graph-container">
+    <h2>Team-wise Distribution</h2>
+    <canvas id="teamBarChart"></canvas>
+  </div>
+
   <div class="table-container">
     <h2>Recent Distributions</h2>
     <table id="distribution-table">
@@ -1834,6 +2763,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <th>S.No.</th>
           <th>Date</th>
           <th>Marathon Team</th>
+          <th>Subteam</th>
           <th>Distributor</th>
           <th>Quantity</th>
           <th>Actions</th>
@@ -1862,162 +2792,26 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 </div>
 
-<script>
-// Function to toggle form visibility
-function toggleForm(formClass) {
-  const filterContainer = document.querySelector('.filter-container');
-  const dataInput = document.querySelector('.data-input');
-  
-  if (!filterContainer || !dataInput) return; // Guard against null elements
-  
-  if (formClass === 'filter-container') {
-    filterContainer.classList.toggle('show');
-    if (dataInput.classList.contains('show')) {
-      dataInput.classList.remove('show');
-    }
-  } else if (formClass === 'data-input') {
-    dataInput.classList.toggle('show');
-    if (filterContainer.classList.contains('show')) {
-      filterContainer.classList.remove('show');
-    }
-  }
-}
+<div class="login-modal" id="loginModal">
+  <div class="login-container">
+    <button class="close-login" onclick="closeLoginModal()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div class="login-header">
+      <h3>Welcome Back</h3>
+      <p>Sign in to access distribution management</p>
+    </div>
+    <form id="loginForm" class="login-form">
+      <input type="email" placeholder="Email" class="login-input" id="loginEmail" required>
+      <input type="password" placeholder="Password" class="login-input" id="loginPassword" required>
+      <button type="submit" class="login-submit">Sign In</button>
+    </form>
+    <div class="login-error" id="loginError"></div>
+  </div>
+</div>
 
-// Function to toggle distributors list visibility with null checks
-function toggleDistributorsList() {
-  const list = document.getElementById('distributor-list');
-  const button = document.getElementById('toggle-distributors');
-  
-  if (!list || !button) return; // Guard against null elements
-  
-  list.classList.toggle('show');
-  button.classList.toggle('active');
-}
-
-// Add null checks for modal functionality
-function closeDeleteModal() {
-  const modal = document.getElementById('deleteModal');
-  if (!modal) return;
-  modal.style.display = 'none';
-}
-
-// Update modal click handler with null check
-document.addEventListener('DOMContentLoaded', () => {
-  const modalOverlay = document.querySelector('.modal-overlay');
-  if (modalOverlay) {
-    modalOverlay.addEventListener('click', function(e) {
-      if (e.target === this) {
-        closeDeleteModal();
-      }
-    });
-  }
-  
-  // Initialize other functionality...
-  const savedRowsPerPage = localStorage.getItem('rowsPerPage');
-  if (savedRowsPerPage) {
-    rowsPerPage = savedRowsPerPage;
-    const select = document.querySelector('.entries-per-page select');
-    if (select) {
-      select.value = savedRowsPerPage;
-    }
-  }
-  
-  if (firebaseLoaded) {
-    loadDistributions();
-  }
-});
-
-// Add null checks for form submission
-function confirmDelete() {
-  const id = window.deleteId;
-  if (id && window.remove) {
-    const distributionsRef = window.getDbRef(`distributions/${id}`);
-    if (distributionsRef) {
-      window.remove(distributionsRef)
-        .catch((error) => {
-          console.error('Error deleting distribution:', error);
-        });
-      closeDeleteModal();
-    }
-  }
-}
-
-// Add null checks for edit functionality
-function editDistribution(id) {
-  if (!id || !window.getDbRef) return;
-  
-  const distributionsRef = window.getDbRef(`distributions/${id}`);
-  window.onValue(distributionsRef, async (snapshot) => {
-    const data = snapshot.val();
-    if (data) {
-      const dataInput = document.querySelector('.data-input');
-      if (!dataInput) return;
-      
-      dataInput.classList.add('show');
-      
-      // Get all form elements with null checks
-      const marathonTypeSelect = document.getElementById('marathon-type');
-      const distributorSelect = document.getElementById('distributor-name');
-      const quantityInput = document.getElementById('quantity');
-      const dateInput = document.getElementById('distribution-date');
-      const form = document.getElementById('distribution-form');
-      const marathonTypeNew = document.getElementById('marathon-type-new');
-      const distributorNameNew = document.getElementById('distributor-name-new');
-      
-      if (!marathonTypeSelect || !distributorSelect || !quantityInput || 
-          !dateInput || !form || !marathonTypeNew || !distributorNameNew) return;
-      
-      // Set values with null checks
-      marathonTypeSelect.value = data.marathonType || '';
-      
-      // Wait for team-specific distributors to load
-      try {
-        await new Promise((resolve) => {
-          const distributionsRef = window.getDbRef('distributions');
-          window.onValue(distributionsRef, (snapshot) => {
-            let distributions = [];
-            snapshot.forEach((childSnapshot) => {
-              const dist = childSnapshot.val();
-              if (dist) {
-                distributions.push({
-                  id: childSnapshot.key,
-                  ...dist
-                });
-              }
-            });
-            
-            updateDistributorSelectByTeam(data.marathonType, distributions);
-            resolve();
-          }, {
-            onlyOnce: true
-          });
-        });
-      } catch (error) {
-        console.error('Error loading team distributors:', error);
-      }
-      
-      distributorSelect.value = data.distributor || '';
-      quantityInput.value = data.quantity || '';
-      dateInput.value = data.date || '';
-      form.setAttribute('data-edit-id', id);
-      
-      marathonTypeNew.style.display = 'none';
-      distributorNameNew.style.display = 'none';
-      marathonTypeNew.value = '';
-      distributorNameNew.value = '';
-
-      // Scroll to form with null check
-      if (dataInput) {
-        dataInput.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    }
-  }, {
-    onlyOnce: true
-  });
-}
-</script>
 </body>
 </html>
